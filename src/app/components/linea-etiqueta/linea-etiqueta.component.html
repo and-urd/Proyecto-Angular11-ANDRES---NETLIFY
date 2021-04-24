@@ -1,0 +1,24 @@
+<div class="container" >
+<mat-grid-list cols="7" rowHeight="4:1"  (keyup.enter)="actualizarEtiqueta()">
+
+    <mat-grid-tile>{{etiqueta["id"]}}</mat-grid-tile>
+
+    <mat-grid-tile *ngIf="inputVisible" ><input [(ngModel)]="etiqueta['nombre']" size="10"/></mat-grid-tile>
+    <mat-grid-tile *ngIf="!inputVisible" >{{etiqueta["nombre"]}}</mat-grid-tile>
+
+    <mat-grid-tile *ngIf="inputVisible" ><input [(ngModel)]="etiqueta['creador']" size="10"/></mat-grid-tile>
+    <mat-grid-tile *ngIf="!inputVisible">{{etiqueta["creador"]}}</mat-grid-tile>
+    
+    <mat-grid-tile>{{etiqueta["createdAt"]}}</mat-grid-tile>
+    <mat-grid-tile>{{etiqueta["updatedAt"]}}</mat-grid-tile>
+
+    <mat-grid-tile><button  (click)="borrarEtiqueta(etiqueta['id'])">Borrar</button></mat-grid-tile>
+
+    <mat-grid-tile>
+        <button *ngIf="inputVisible" (click)="actualizarEtiqueta()">Actualizar</button>
+        <button *ngIf="!inputVisible" (click)="actualizar()">Editar</button>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+  </div>
+  <mat-divider></mat-divider>

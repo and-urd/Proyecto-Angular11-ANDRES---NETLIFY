@@ -1,0 +1,41 @@
+
+
+<div class="container">
+    <mat-grid-list cols="6" rowHeight="4:1" >
+        <mat-grid-tile>
+            <div><a [routerLink]= "['/home']">Volver a Home</a></div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <div><a [routerLink]= "['/etiquetas']">Volver a Etiquetas</a></div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>
+
+<div class="container">
+	<h2>Crear etiqueta</h2>
+	<form  class="form-inline" [formGroup]="etiquetaForm" (submit)="crear_nueva_etiqueta()">
+			
+		<br>
+		<div class="row">
+			<div class="col-sm-6" >
+				<div class="form-group">
+					<label for="titulo">Nombre:</label>
+					<input class="form-control" formControlName="nombre" placeholder='' />
+				</div>
+			</div>
+			<div class="col-sm-6" >
+				<div class="form-group">
+					<label for="descripcion">Creador:</label>
+					<input class="form-control" formControlName="creador" placeholder=''/>
+				</div>      
+			</div>
+		</div>
+
+		<br>		
+		<button  class="btn btn-success" color="primary" type="submit" >
+			Crear etiqueta
+		</button>
+			
+	</form> 
+
+</div>

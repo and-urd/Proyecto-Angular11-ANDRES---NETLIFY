@@ -1,0 +1,76 @@
+
+<div class="container">
+    <mat-grid-list cols="6" rowHeight="4:1" >
+        <mat-grid-tile>
+            <div><a [routerLink]= "['/home']">Volver a Home</a></div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <div><a [routerLink]= "['/nueva-etiqueta']">Crear nueva etiquetas</a></div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>
+
+
+
+<hr class="my-4">
+<div class="container">
+    <h1>Listado de etiquetas</h1>
+    <mat-divider></mat-divider>
+    <!-- ==================================================================== -->
+    <!-- Se genera el listado de tareas existentes -->
+
+    <mat-grid-list cols="7" rowHeight="4:1" >
+        <mat-grid-tile>Id</mat-grid-tile>
+        <mat-grid-tile>Nombre</mat-grid-tile>
+        <mat-grid-tile>Creador</mat-grid-tile>
+        <mat-grid-tile>Creado</mat-grid-tile>
+        <mat-grid-tile>Actualizado</mat-grid-tile>
+
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+    </mat-grid-list>
+
+    <mat-divider></mat-divider>
+
+    <mat-grid-list cols="7" rowHeight="4:1" >
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile><input [(ngModel)]="nombreBusq" (keyup)="busquedaNombre()" placeholder="Nombre" size="10"/></mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+    </mat-grid-list>
+
+    <mat-divider></mat-divider>
+
+
+    <div>
+        <app-linea-etiqueta *ngFor="let e of arrayEtiquetas" [etiqueta]="e"></app-linea-etiqueta>
+    </div>
+    <button (click)="paginaAnterior()" disabled="{{this.botonAntActivo}}"><</button>
+    <button (click)="paginaSiguiente()"            disabled="{{this.botonSigActivo}}"                            >></button>
+    <p>Página: {{this.paginaActual + 1}} de {{this.totalPaginas}}</p>
+    
+    Elementos por página:<select [(ngModel)]="checkboxValue" (change)="elementosPorPagina(checkboxValue)" >
+        <!-- <option value="3" selected>3</option>
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="50">50</option>
+ -->
+
+        <option value="10" selected>10</option>
+        <option value="25">25</option>
+        <option value="50">50</option>
+
+
+      </select>
+</div>
+<div class="overlay" *ngIf="spinner">
+    <div class="spinner ">
+        <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" height="25%" width="25%"/>
+    </div>    
+</div>
+
+

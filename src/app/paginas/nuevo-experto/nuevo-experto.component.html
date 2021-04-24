@@ -1,0 +1,115 @@
+
+<div class="container">
+    <mat-grid-list cols="6" rowHeight="4:1" >
+        <mat-grid-tile>
+            <div><a [routerLink]= "['/home']">Volver a Home</a></div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <div><a [routerLink]= "['/expertos']">Volver a Expertos</a></div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>
+
+
+
+<div class="container">
+	<!-- <h1>Nuevo experto</h1> -->
+	<h2>Crear Experto</h2>
+	<form  class="form-inline" [formGroup]="expertoForm" (submit)="crear_nuevo_experto()">
+			
+		<br>
+		<div class="row">
+			<div class="col-sm-6" >
+				<div class="form-group">
+					<!-- <label for="titulo">Nombre:</label> -->
+					<input class="form-control" formControlName="nombre" placeholder='Nombre' />
+				</div>
+			</div>
+			 <div class="col-sm-6" >
+				<div class="form-group">
+					<!-- <label for="descripcion">Disponibilidad:</label>
+					<input class="form-control" formControlName="disponibilidad" placeholder='Disponibilidad'/> -->
+					<mat-form-field appearance="fill">
+						<mat-label>Disponibilidad</mat-label>
+						<mat-select [(value)]="this.disponibilidad">
+							<mat-option></mat-option>
+							<mat-option value="Mañanas">Mañanas</mat-option>
+							<mat-option value="Tardes">Tardes</mat-option>
+						</mat-select>
+					</mat-form-field>
+				</div>      
+			</div> 
+
+			<div class="col-sm-6" >
+				<div class="form-group">
+					<!-- <label for="descripcion">Telefono:</label> -->
+					<input class="form-control" formControlName="telefono" placeholder='Teléfono'/>
+				</div>      
+			</div>
+			<div class="col-sm-6" >
+				<div class="form-group">
+					<!-- <label for="descripcion">Email:</label> -->
+					<input class="form-control" formControlName="email" placeholder='Email'/>
+				</div>      
+			</div>
+			<div class="col-sm-6" >
+				<div class="form-group">
+					<!-- <label for="descripcion">Contacto ciudad:</label> -->
+					<input class="form-control" formControlName="contactoCiudad" placeholder='Dirección'/>
+				</div>      
+			</div>
+			
+			<div class="col-sm-6" >
+				<div class="form-group">
+					<!-- <label for="descripcion">Contacto Linkedin:</label> -->
+					<input class="form-control" formControlName="contactoLinkedin" placeholder='Linkedin'/>
+				</div>      
+			</div>
+			<div class="col-sm-6" >
+				<div class="form-group">
+					<!-- <label for="descripcion">NIF:</label> -->
+					<input class="form-control" formControlName="nif" placeholder='NIF'/>
+				</div>      
+			</div>
+			<div class="col-sm-6" >
+				<div class="form-group">
+					<!-- <label for="descripcion">Etiquetas:</label> -->
+					<!-- <input class="form-control" formControlName="etiquetas" placeholder='Etiquetas'/> -->
+
+					<mat-form-field appearance="fill">
+						<mat-label>Etiquetas</mat-label>
+						<mat-select [formControl]="etiquetas" multiple>
+							<mat-select-trigger>
+							{{etiquetas.value ? etiquetas.value[0] : ''}}
+							<span *ngIf="etiquetas.value?.length > 1" class="example-additional-selection">
+								(+{{etiquetas.value.length - 1}} {{etiquetas.value?.length === 2 ? 'etiqueta' : 'etiquetas'}})
+							</span>
+							</mat-select-trigger>
+							<mat-option *ngFor="let e of arrayListadoEtiquetas" [value]="e">{{e}}</mat-option>
+						</mat-select>
+					</mat-form-field>
+						
+
+
+				</div>      
+			</div>
+			
+			
+			
+			
+			
+			
+			
+
+
+
+		</div>
+
+		<br>		
+		<button  class="btn btn-success" color="primary" type="submit" >
+			Crear nuevo experto
+		</button>
+			
+	</form> 
+
+</div>

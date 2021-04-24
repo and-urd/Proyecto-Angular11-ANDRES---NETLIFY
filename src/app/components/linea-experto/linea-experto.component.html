@@ -1,0 +1,31 @@
+
+<div class="container" >
+    <mat-grid-list cols="6" rowHeight="4:1"  (keyup.enter)="actualizarExperto()">
+    
+        
+    
+        
+        <mat-grid-tile  >{{experto["nombre"]}}</mat-grid-tile>
+    
+        
+        <mat-grid-tile>{{experto["estado"]}}</mat-grid-tile>
+        
+        <mat-grid-tile>
+            <ul>
+                <li *ngFor="let e of experto.etiquetas" >{{e.nombre}}</li>  
+            </ul>           
+        </mat-grid-tile>
+
+        <mat-grid-tile>{{experto["puntuacion"]}}</mat-grid-tile>
+    
+        <mat-grid-tile><button  (click)="borrarExperto(experto['id'])">Borrar</button></mat-grid-tile>
+    
+
+        <mat-grid-tile>
+            
+            <a routerLink='/informacion-experto/{{experto.id}}'>Detalles</a>
+        </mat-grid-tile>
+
+    </mat-grid-list>
+</div>
+<mat-divider></mat-divider>

@@ -1,0 +1,208 @@
+<div class="container">
+    <mat-grid-list cols="6" rowHeight="4:1" >
+        <mat-grid-tile>
+            <div><a [routerLink]= "['/home']">Volver a Home</a></div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <div><a [routerLink]= "['/expertos']">Volver a expertos</a></div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>
+
+
+
+
+
+
+<div class="container" >
+	<h2>Información experto</h2>
+	<form  class="form-inline" (keyup.esc)="alternaVisible()">
+			
+		<div class="row">
+			<div class="col-sm-6" >
+                
+                Nombre: <label *ngIf="!inputVisible"  (click)="alternaVisible()">{{experto['nombre']}}</label>
+                <input *ngIf="inputVisible" [(ngModel)]="experto['nombre']" [ngModelOptions]="{standalone: true}" size="10" 
+                (keyup.enter)="actualizarExperto()" />
+                
+			</div>
+			<div class="col-sm-6" >
+                
+                
+
+                NIF: <label *ngIf="!inputVisible"  (click)="alternaVisible()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{experto['nif']}}</label>
+                <input *ngIf="inputVisible" [(ngModel)]="experto['nif']" [ngModelOptions]="{standalone: true}" size="10" (keyup.enter)="actualizarExperto()"/>
+
+
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-sm-6" >
+				
+                Creado: <label>{{experto['createdAt']}}</label>
+			</div>
+			<div class="col-sm-6" >
+				
+                Último cambio: <label>{{experto['updatedAt']}}</label>
+			</div>
+		</div>
+		<hr>		
+		<div class="row">
+			<div class="col-sm-6" >
+				<div class="form-group">
+
+                <div class="form-group">
+					
+					<mat-form-field appearance="fill">
+						<mat-label>Disponibilidad</mat-label>
+						<mat-select [(value)]="this.disponibilidad" (selectionChange)="cambioDisponibilidad(this.disponibilidad)">
+							<mat-option value=""></mat-option>
+							<mat-option value="Mañanas">Mañanas</mat-option>
+							<mat-option value="Tardes">Tardes</mat-option>
+						</mat-select>
+					</mat-form-field>
+				</div>  
+
+				</div>      
+			</div>
+			<div class="col-sm-6" >
+				
+		
+                <div class="form-group">
+                    
+                    <mat-form-field appearance="fill">
+                        <mat-label>Estado</mat-label>
+						<mat-select [(value)]="this.estado" (selectionChange)="cambioEstado(this.estado)">
+                            
+                            <mat-option value="Validado">Validado</mat-option>
+							<mat-option value="Pdte. validar">Pdte. validar</mat-option>
+						</mat-select>
+					</mat-form-field>
+				</div>  
+                
+                
+
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-sm-6" >
+				<div class="form-group">
+                    <!-- Valoración:<input [(ngModel)]="experto['puntuacion']" [ngModelOptions]="{standalone: true}" placeholder=""/> -->
+                    Valoración: <label *ngIf="!inputVisible"  (click)="alternaVisible()">{{experto['puntuacion']}}</label>
+                    <input *ngIf="inputVisible" [(ngModel)]="experto['puntuacion']" [ngModelOptions]="{standalone: true}" 
+                        size="10" (keyup.enter)="actualizarExperto()"
+                        type="number" min="0" max="100"/>
+				</div>
+			</div>
+			<div class="col-sm-6" >
+                <div class="form-group">                    
+                    <mat-form-field appearance="fill">
+                        <mat-label>Origen:</mat-label>
+						<mat-select [(value)]="this.origen" (selectionChange)="cambioOrigen(this.origen)">
+                            <mat-option value=""></mat-option>
+                            <mat-option value="Búsqueda">Búsqueda</mat-option>
+							<mat-option value="Cv">Cv</mat-option>
+                            <mat-option value="Linkedin">Linkedin</mat-option>
+						</mat-select>
+					</mat-form-field>
+				</div>
+			</div>
+		</div>	
+		<hr>	
+        
+        <div class="row">
+			<div class="col-sm-6" >
+                Teléfono: <label *ngIf="!inputVisible"  (click)="alternaVisible()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{experto['telefono']}}</label>
+                <input *ngIf="inputVisible" [(ngModel)]="experto['telefono']" [ngModelOptions]="{standalone: true}" size="10" (keyup.enter)="actualizarExperto()"/>
+			</div>
+			<div class="col-sm-6" >
+                Correo: <label *ngIf="!inputVisible"  (click)="alternaVisible()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{experto['email']}}</label>
+                <input *ngIf="inputVisible" [(ngModel)]="experto['email']" [ngModelOptions]="{standalone: true}" size="10" (keyup.enter)="actualizarExperto()"/>
+			</div>
+		</div>	
+		<br>	
+
+        <div class="row">
+			<div class="col-sm-6" >
+                Dirección: <label *ngIf="!inputVisible"  (click)="alternaVisible()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{experto['contactoCiudad']}}</label>
+                <input *ngIf="inputVisible" [(ngModel)]="experto['contactoCiudad']" [ngModelOptions]="{standalone: true}" size="10" (keyup.enter)="actualizarExperto()"/>
+			</div>
+		</div>	
+		<hr>	
+        <div class="row">
+			<div class="col-sm-6" >
+				<div class="form-group">
+                    CV:<input [(ngModel)]="experto['ficheroCv']" [ngModelOptions]="{standalone: true}" placeholder=""/>
+				</div>
+			</div>
+			<div class="col-sm-6" >
+				
+			</div>
+		</div>	
+        <br>
+        <div class="row">
+            <div class="col-sm-6" >
+                <div class="form-group">
+                    Linkedin:<input [(ngModel)]="experto['contactoLinkedin']" [ngModelOptions]="{standalone: true}" placeholder=""/>
+				</div>
+			</div>
+            <div class="col-sm-6" >
+            
+            </div>
+		</div>	
+		<hr>	
+        <div class="row">
+			<div class="col-sm-6" >
+
+                Observaciones: <label *ngIf="!inputVisible"  (click)="alternaVisible()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{experto['observaciones']}}</label>
+                <input *ngIf="inputVisible" [(ngModel)]="experto['observaciones']" [ngModelOptions]="{standalone: true}" size="10" (keyup.enter)="actualizarExperto()"/>
+
+
+			</div>
+			<div class="col-sm-6" >
+				<div class="form-group">
+                    
+					<!-- Motivo del descarte:<input [(ngModel)]="experto['estadoMotivo']" [ngModelOptions]="{standalone: true}" placeholder=""/> -->
+                    Motivo del descarte: <label *ngIf="!inputVisible"  (click)="alternaVisible()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{experto['estadoMotivo']}}</label>
+                    <input *ngIf="inputVisible" [(ngModel)]="experto['estadoMotivo']" [ngModelOptions]="{standalone: true}" size="10" (keyup.enter)="actualizarExperto()"/>
+    
+
+				</div>
+			</div>
+		</div>	
+        
+			
+        <h1>Etiquetas</h1>
+		<ul>
+			<li *ngFor="let e of arrayEtiquetas">{{e["nombre"]}}
+					<button (click)="borrarEtiqueta(e['id'])">x</button>
+				</li>
+		</ul>
+
+		<div class="col-sm-6" >
+			<div class="form-group">
+
+
+				<mat-form-field appearance="fill">
+					<mat-label>Etiquetas</mat-label>
+					<mat-select [formControl]="etiquetas" multiple>
+						<mat-select-trigger>
+						{{etiquetas.value ? etiquetas.value[0] : ''}}
+						<span *ngIf="etiquetas.value?.length > 1" class="example-additional-selection">
+							(+{{etiquetas.value.length - 1}} {{etiquetas.value?.length === 2 ? 'etiqueta' : 'etiquetas'}})
+						</span>
+						</mat-select-trigger>
+						<mat-option *ngFor="let e of arrayListadoEtiquetas" [value]="e">{{e}}</mat-option>
+					</mat-select>
+				</mat-form-field>
+					
+				<button (click)="agregarEtiquetas()">Añadir</button>
+
+			</div>      
+		</div>
+			
+	</form> 
+
+</div>

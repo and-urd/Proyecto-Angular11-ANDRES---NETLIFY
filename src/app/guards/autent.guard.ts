@@ -21,8 +21,7 @@ export class AutentGuard implements CanActivate {
       if(this.usersService.getEstaLogeado()  &&  this.token!=null){
         return true;
       }else {
-        // ! TODO -- cambiar a false
-        return true;
+        return false;
       }
   }
   

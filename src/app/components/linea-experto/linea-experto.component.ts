@@ -31,7 +31,7 @@ export class LineaExpertoComponent implements OnInit {
 
   borrarExperto(id: number){
     
-    if(confirm(`Se borrará el experto ${this.experto["nombre"].toUpperCase()}.\nTambién se borrarán las etiquetas asociadas a los expertos !!`) == true){
+    if(confirm(`Se borrará el experto ${this.experto["nombre"].toUpperCase()}.`) == true){
       
       this.expertoService.borrar(id).subscribe(data =>{
         

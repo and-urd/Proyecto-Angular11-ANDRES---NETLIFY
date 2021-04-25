@@ -18,6 +18,7 @@ export class InformacionExpertoComponent implements OnInit {
 	arrayEtiquetas: Etiqueta[] = [];
 	arrayListadoEtiquetas: string[] = [];
 	etiquetasTodas: Etiqueta[] = [];
+	spinner: boolean = false;
 
 	experto: Experto = new Experto(0, "",new Date(),new Date(), "", "", "",
 	false, "", "", "", "", "", "", 0, "", "",
@@ -47,6 +48,7 @@ export class InformacionExpertoComponent implements OnInit {
 				this.id = params.id
 
 				// Recupero el experto con ese ID de la BBDD
+				this.spinner = true;
 				this.expertoService.encontrarPorId(this.id).subscribe(data =>{
 					this.experto = data;
 					this.disponibilidad = this.experto.disponibilidad;
@@ -68,6 +70,8 @@ export class InformacionExpertoComponent implements OnInit {
 					
 					
 				});
+
+				this.spinner = false;
 					
 				});
 			} else {
@@ -107,8 +111,10 @@ export class InformacionExpertoComponent implements OnInit {
 
 	actualizarExperto(){
 		this.inputVisible = false;
+		this.spinner = true;
 		this.expertoService.actualizar(this.experto, this.id).subscribe(data =>{
 			console.log(data);
+			this.spinner = false;
 			
 		})
 	}

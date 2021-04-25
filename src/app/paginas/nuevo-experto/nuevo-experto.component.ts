@@ -17,6 +17,7 @@ export class NuevoExpertoComponent implements OnInit {
   arrayListadoEtiquetas: string [] = [];
 
   disponibilidad: string= '';
+  spinner: boolean = false;
 
   experto: Experto = new Experto(0, "", new Date(), new Date(),  "",
                                   "", "", false,  "", "", "", "", "", 
@@ -49,11 +50,12 @@ export class NuevoExpertoComponent implements OnInit {
     });
 
     // Recuperamos las etiquetas de la BBDD
+    this.spinner = true;
     this.etiquetaService.encontrarTodas("",0, 100).subscribe(data =>{
       this.arrayEtiquetas = data["content"];
       this.arrayEtiquetas.map(elemento => this.arrayListadoEtiquetas.push(elemento["nombre"]));
       // console.log(this.arrayListadoEtiquetas);
-      
+      this.spinner = false;
     });
     
   }
@@ -91,10 +93,11 @@ export class NuevoExpertoComponent implements OnInit {
     nuevoExperto.etiquetas = arrayEtiquetasExperto;
     
     
-
+    this.spinner = true;
     this.expertoService.crear(nuevoExperto).subscribe(data =>{
       this.router.navigate(['/expertos']);
       console.log(data);
+      this.spinner = false;
       
     });
 

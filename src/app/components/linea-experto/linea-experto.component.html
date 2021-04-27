@@ -18,13 +18,16 @@
 
         <mat-grid-tile>{{experto["puntuacion"]}}</mat-grid-tile>
     
-        <mat-grid-tile><button type="button" class="btn btn-danger" (click)="borrarExperto(experto['id'])">Eliminar</button></mat-grid-tile>
-    
-
+        
+        
         <mat-grid-tile>
             
             <a routerLink='/informacion-experto/{{experto.id}}'>Detalles</a>
         </mat-grid-tile>
+        
+        
+        <mat-grid-tile><button type="button" class="btn btn-outline-danger btn-sm" (click)="borrarExperto(experto['id'])">Eliminar</button></mat-grid-tile>
+
 
     </mat-grid-list>
 </div>

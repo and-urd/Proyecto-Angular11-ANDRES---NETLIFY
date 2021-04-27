@@ -20,27 +20,27 @@ export class ExpertoService {
                   limite: string, 
                   pagina: string): Observable<any>{
 
-    return this.http.get(`/api/expertos/?page=${pagina}&size=${limite}&nombre=${nombre}&modalidad=${modalidad}&estado=${estado}&etiqueta=${etiqueta}`);
+    return this.http.get(`https://proyectofinalurda.herokuapp.com/api/expertos/?page=${pagina}&size=${limite}&nombre=${nombre}&modalidad=${modalidad}&estado=${estado}&etiqueta=${etiqueta}`);
 
   }
 
   // Encontrar experto por su Id
   encontrarPorId(id: number): Observable<any>{
-    return this.http.get(`/api/expertos/${id}`);
+    return this.http.get(`https://proyectofinalurda.herokuapp.com/api/expertos/${id}`);
   }
 
   // Crear un experto
   crear(experto: Experto): Observable<any>{
-    return this.http.post(`/api/expertos`, experto);
+    return this.http.post(`https://proyectofinalurda.herokuapp.com/api/expertos`, experto);
   }
 
   // Actualizar experto
   actualizar(experto: Experto, id: number): Observable<any>{
-    return this.http.put(`/api/expertos/${id}`, experto);
+    return this.http.put(`https://proyectofinalurda.herokuapp.com/api/expertos/${id}`, experto);
   }
 
   // Borrar experto
   borrar(id: number): Observable<any>{
-    return this.http.delete(`/api/expertos/${id}`);
+    return this.http.delete(`https://proyectofinalurda.herokuapp.com/api/expertos/${id}`);
   }
 }

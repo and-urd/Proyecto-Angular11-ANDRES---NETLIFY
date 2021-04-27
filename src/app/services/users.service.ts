@@ -21,7 +21,7 @@ export class UsersService {
   }
 
   register(user: any): Observable<any>{
-    return this.http.post("/api/usuario-registro",user);
+    return this.http.post("https://proyectofinalurda.herokuapp.com/api/usuario-registro",user);
   }
 
   deleteToken(){

@@ -14,11 +14,11 @@
 
     
     <mat-grid-tile>
-        <button *ngIf="inputVisible" (click)="actualizarEtiqueta()" type="button" class="btn btn-outline-primary btn-sm">Actualizar</button>
-        <button *ngIf="!inputVisible" (click)="actualizar()" type="button" class="btn btn-outline-primary btn-sm">Editar</button>
+        <button *ngIf="inputVisible" (click)="actualizarEtiqueta()" type="button" class="btn btn-outline-primary">Actualizar</button>
+        <button *ngIf="!inputVisible" (click)="actualizar()" type="button" class="btn btn-outline-primary">Editar</button>
     </mat-grid-tile>
     
-    <mat-grid-tile><button type="button" class="btn btn-outline-danger  btn-sm" (click)="borrarEtiqueta(etiqueta['id'])">Eliminar</button></mat-grid-tile>
+    <mat-grid-tile><button type="button" class="btn btn-outline-danger" (click)="borrarEtiqueta(etiqueta['id'])">Eliminar</button></mat-grid-tile>
 
 
   </mat-grid-list>

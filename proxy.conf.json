@@ -1,6 +1,6 @@
 {
     "/api/*":{
-        "target":"https://proyectofinalurda.herokuapp.com",
+        "target":"",
         "secure":false,
         "changeOrigin": false
     }

@@ -1,7 +1,7 @@
 <div class="container" >
-<mat-grid-list cols="7" rowHeight="4:1"  (keyup.enter)="actualizarEtiqueta()">
+<mat-grid-list cols="6" rowHeight="4:1"  (keyup.enter)="actualizarEtiqueta()">
 
-    <mat-grid-tile>{{etiqueta["id"]}}</mat-grid-tile>
+    <!-- <mat-grid-tile>{{etiqueta["id"]}}</mat-grid-tile> -->
 
     <mat-grid-tile *ngIf="inputVisible" ><input [(ngModel)]="etiqueta['nombre']" size="10"/></mat-grid-tile>
     <mat-grid-tile *ngIf="!inputVisible" >{{etiqueta["nombre"]}}</mat-grid-tile>

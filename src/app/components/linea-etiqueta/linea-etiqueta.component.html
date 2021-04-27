@@ -12,12 +12,14 @@
     <mat-grid-tile>{{etiqueta["createdAt"]}}</mat-grid-tile>
     <mat-grid-tile>{{etiqueta["updatedAt"]}}</mat-grid-tile>
 
-    <mat-grid-tile><button type="button" class="btn btn-danger" (click)="borrarEtiqueta(etiqueta['id'])">Eliminar</button></mat-grid-tile>
-
+    
     <mat-grid-tile>
         <button *ngIf="inputVisible" (click)="actualizarEtiqueta()">Actualizar</button>
         <button *ngIf="!inputVisible" (click)="actualizar()">Editar</button>
     </mat-grid-tile>
+    
+    <mat-grid-tile><button type="button" class="btn btn-danger" (click)="borrarEtiqueta(etiqueta['id'])">Eliminar</button></mat-grid-tile>
+
 
   </mat-grid-list>
   </div>

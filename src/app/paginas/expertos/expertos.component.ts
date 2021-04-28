@@ -327,4 +327,15 @@ export class ExpertosComponent implements OnInit {
       this.arrayExpertos = arrayAuxExp;
     }
   }
+
+
+  irPaginaCrearExperto(){
+    this.router.navigate(['/nuevo-experto']);
+  }
+
+
+
+
+
+
 }

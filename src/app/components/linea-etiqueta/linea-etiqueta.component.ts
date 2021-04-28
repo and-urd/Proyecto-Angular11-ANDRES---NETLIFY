@@ -56,26 +56,37 @@ export class LineaEtiquetaComponent implements OnInit {
 
 
 
-    
+
     let arrayEtiquetas: Etiqueta[] = []; // Guardará todas las etiquetas de la BBDD
+    let estaEnBBDD: boolean = false;
 
     // Obtengo todas las etiquetas de la base de datos
     this.etiquetaService.encontrarTodas("", 0, 100).subscribe(data =>{
+
       arrayEtiquetas = data["content"];
       console.log(arrayEtiquetas);
+
+
+        for (let i = 0; i < arrayEtiquetas.length; i++) {
+          const element = arrayEtiquetas[i];
+          if(this.etiqueta["nombre"] == element.nombre){
+            estaEnBBDD = true;
+          }
+        }
+
+        if(estaEnBBDD == true){
+          alert("La etiqueta ya existe en la BBDD");
+        }
+
     });
 
-    let estaEnBBDD: boolean = false;
-    for (let i = 0; i < arrayEtiquetas.length; i++) {
-      const element = arrayEtiquetas[i];
-      if(this.etiqueta["nombre"] == element.nombre){
-        estaEnBBDD = true;
-      }
+    
+    if(estaEnBBDD == false){
+      alert("Se procede a guardar en la BBDD");
+      //.....
+      
     }
 
-    if(estaEnBBDD == true){
-      alert("La etiqueta ya existe en la BBDD");
-    }
 
 
 
@@ -106,6 +117,12 @@ export class LineaEtiquetaComponent implements OnInit {
                 // this.inputVisible = false;
               }
               this.inputVisible = false;
+
+
+
+
+
+
   }
 
 

@@ -45,11 +45,11 @@ export class RegisterPageComponent implements OnInit {
 				this.spinner= false;
 				this.router.navigate(['/home']);
 		
-				console.log(data);
+				// console.log(data);
 			
 			},
 			error =>{
-			console.log(error);
+			// console.log(error);
 			this.spinner= false;
 			this.usersService.setEstaLogeado(false);
 			this.registroFallido = true;

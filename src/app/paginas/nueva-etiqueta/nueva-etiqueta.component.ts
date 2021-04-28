@@ -46,8 +46,8 @@ export class NuevaEtiquetaComponent implements OnInit {
     if(etiqueta.nombre != ''){  
       this.etiquetaService.crear(etiqueta).subscribe(data => {
         this.router.navigate(['/etiquetas']);
-        console.log("Creación de etiqueta");
-        console.log(data);
+        // console.log("Creación de etiqueta");
+        // console.log(data);
       },
       error =>{
         alert("Error en la creación de la etiqueta");

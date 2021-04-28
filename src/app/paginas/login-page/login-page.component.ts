@@ -42,15 +42,15 @@ export class LoginPageComponent implements OnInit {
       this.spinner = false;
     },
     error =>{
-      console.log(error);
+      // console.log(error);
       this.loginFallido= true;
       this.usersService.setEstaLogeado(false);
       this.spinner = false;
     })
 
 
-    console.log(this.email);
-    console.log(this.password);
+    // console.log(this.email);
+    // console.log(this.password);
     
     
   }

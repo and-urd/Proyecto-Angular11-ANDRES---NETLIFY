@@ -61,7 +61,7 @@ export class LineaEtiquetaComponent implements OnInit {
             // this.inputVisible=false;
             this.nombreAnterior = this.etiqueta["nombre"];
             this.creadorAnterior = this.etiqueta["creador"];
-            console.log(data);
+            // console.log(data);
             });
           }
           else

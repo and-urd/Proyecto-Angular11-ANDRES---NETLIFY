@@ -113,7 +113,7 @@ export class InformacionExpertoComponent implements OnInit {
 		this.inputVisible = false;
 		this.spinner = true;
 		this.expertoService.actualizar(this.experto, this.id).subscribe(data =>{
-			console.log(data);
+			// console.log(data);
 			this.spinner = false;
 			
 		})

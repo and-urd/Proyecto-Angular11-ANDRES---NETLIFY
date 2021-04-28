@@ -98,7 +98,7 @@ export class NuevoExpertoComponent implements OnInit {
       this.spinner = true;
       this.expertoService.crear(nuevoExperto).subscribe(data =>{
         this.router.navigate(['/expertos']);
-        console.log(data);
+        // console.log(data);
         this.spinner = false;
         
       });

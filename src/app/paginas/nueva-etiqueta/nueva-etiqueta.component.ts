@@ -53,7 +53,12 @@ export class NuevaEtiquetaComponent implements OnInit {
     );
 
     // Comprobamos si la etiqueta creada ya existe en la BBDD
-
+    for (let i = 0; i < this.arrayEtiquetas.length; i++) {
+      const element = this.arrayEtiquetas[i];
+      if(element.nombre == etiqueta.nombre){
+        alert("Esta etiqueta ya existe en la base de datos.");
+      }
+    }
 
     if(etiqueta.nombre != ''){  
       this.etiquetaService.crear(etiqueta).subscribe(data => {

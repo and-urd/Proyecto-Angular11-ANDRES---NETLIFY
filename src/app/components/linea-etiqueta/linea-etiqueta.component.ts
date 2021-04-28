@@ -77,6 +77,8 @@ export class LineaEtiquetaComponent implements OnInit {
         if(estaEnBBDD == true){
           this.inputVisible = false;
           alert("La etiqueta ya existe en la BBDD");
+          this.etiqueta["nombre"] = this.nombreAnterior;
+          this.etiqueta["creador"] = this.creadorAnterior;
         }else{
 
 

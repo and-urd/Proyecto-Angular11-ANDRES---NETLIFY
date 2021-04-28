@@ -93,14 +93,19 @@ export class NuevoExpertoComponent implements OnInit {
     nuevoExperto.etiquetas = arrayEtiquetasExperto;
     
     
-    this.spinner = true;
-    this.expertoService.crear(nuevoExperto).subscribe(data =>{
-      this.router.navigate(['/expertos']);
-      console.log(data);
-      this.spinner = false;
-      
-    });
+    if(nuevoExperto.nombre != ''){
 
+      this.spinner = true;
+      this.expertoService.crear(nuevoExperto).subscribe(data =>{
+        this.router.navigate(['/expertos']);
+        console.log(data);
+        this.spinner = false;
+        
+      });
+
+    }else{
+      alert("El nombre del experto no puede quedar vacío.");
+    }
 
   }
 

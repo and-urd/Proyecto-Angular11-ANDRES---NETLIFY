@@ -53,27 +53,64 @@ export class LineaEtiquetaComponent implements OnInit {
 
   actualizarEtiqueta(){
 
-    if((this.etiqueta["nombre"] != this.nombreAnterior) || (this.etiqueta["creador"] != this.creadorAnterior))
-    {
-          if(confirm("Se va modificar la etiqueta")== true)
-          {
-            this.etiquetaService.actualizar(this.etiqueta["id"],this.etiqueta).subscribe(data =>{
-            // this.inputVisible=false;
-            this.nombreAnterior = this.etiqueta["nombre"];
-            this.creadorAnterior = this.etiqueta["creador"];
-            // console.log(data);
-            });
-          }
-          else
-          {
-            this.etiqueta["nombre"] = this.nombreAnterior;
-            this.etiqueta["creador"] = this.creadorAnterior;
-            // this.inputVisible=false;
-          }
 
-    }else{
-      // this.inputVisible = false;
+
+
+    
+    let arrayEtiquetas: Etiqueta[] = []; // Guardará todas las etiquetas de la BBDD
+
+    // Obtengo todas las etiquetas de la base de datos
+    this.etiquetaService.encontrarTodas("", 0, 100).subscribe(data =>{
+      arrayEtiquetas = data["content"];
+      console.log(arrayEtiquetas);
+    });
+
+    let estaEnBBDD: boolean = false;
+    for (let i = 0; i < arrayEtiquetas.length; i++) {
+      const element = arrayEtiquetas[i];
+      if(this.etiqueta["nombre"] == element.nombre){
+        estaEnBBDD = true;
+      }
     }
-    this.inputVisible = false;
+
+    if(estaEnBBDD == true){
+      alert("La etiqueta ya existe en la BBDD");
+    }
+
+
+
+
+
+
+
+
+              if((this.etiqueta["nombre"] != this.nombreAnterior) || (this.etiqueta["creador"] != this.creadorAnterior))
+              {
+                    if(confirm("Se va modificar la etiqueta")== true)
+                    {
+                      this.etiquetaService.actualizar(this.etiqueta["id"],this.etiqueta).subscribe(data =>{
+                      // this.inputVisible=false;
+                      this.nombreAnterior = this.etiqueta["nombre"];
+                      this.creadorAnterior = this.etiqueta["creador"];
+                      // console.log(data);
+                      });
+                    }
+                    else
+                    {
+                      this.etiqueta["nombre"] = this.nombreAnterior;
+                      this.etiqueta["creador"] = this.creadorAnterior;
+                      // this.inputVisible=false;
+                    }
+
+              }else{
+                // this.inputVisible = false;
+              }
+              this.inputVisible = false;
   }
+
+
+
+
+
+
 }

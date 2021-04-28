@@ -19,6 +19,8 @@ export class NuevaEtiquetaComponent implements OnInit {
   createdAt: Date = new Date();
   updatedAt: Date = new Date();
 
+  arrayEtiquetas: Etiqueta[] = []; // Todas las etiquetas de la bbdd
+
   etiquetaForm: FormGroup = new FormGroup({});
   constructor( 
               public router: Router,
@@ -32,6 +34,13 @@ export class NuevaEtiquetaComponent implements OnInit {
       nombre: '',
       creador: ''
     });
+
+    // Obtengo todas las etiquetas de la BBDD
+    this.etiquetaService.encontrarTodas("", 0, 100).subscribe(data =>{
+      this.arrayEtiquetas = data["content"];
+      console.log(this.arrayEtiquetas);
+    });
+
   }
 
   crear_nueva_etiqueta(){
@@ -42,6 +51,9 @@ export class NuevaEtiquetaComponent implements OnInit {
       new Date(), 
       new Date()
     );
+
+    // Comprobamos si la etiqueta creada ya existe en la BBDD
+
 
     if(etiqueta.nombre != ''){  
       this.etiquetaService.crear(etiqueta).subscribe(data => {

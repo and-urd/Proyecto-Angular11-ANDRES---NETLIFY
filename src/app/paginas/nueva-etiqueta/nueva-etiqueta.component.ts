@@ -53,14 +53,17 @@ export class NuevaEtiquetaComponent implements OnInit {
     );
 
     // Comprobamos si la etiqueta creada ya existe en la BBDD
+
+    let estaEnBBDD: boolean = false;
     for (let i = 0; i < this.arrayEtiquetas.length; i++) {
       const element = this.arrayEtiquetas[i];
       if(element.nombre == etiqueta.nombre){
+        estaEnBBDD = true;
         alert("Esta etiqueta ya existe en la base de datos.");
       }
     }
 
-    if(etiqueta.nombre != ''){  
+    if(/* etiqueta.nombre != '' &&  */estaEnBBDD==false){  
       this.etiquetaService.crear(etiqueta).subscribe(data => {
         this.router.navigate(['/etiquetas']);
         // console.log("Creación de etiqueta");
@@ -70,7 +73,7 @@ export class NuevaEtiquetaComponent implements OnInit {
         alert("Error en la creación de la etiqueta");
       });
     }else{
-      alert("La etiqueta debe tener un nombre.");
+      alert("La etiqueta ya existe en la base de datos.");
     }
     
 

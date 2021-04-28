@@ -76,17 +76,7 @@ export class LineaEtiquetaComponent implements OnInit {
 
         if(estaEnBBDD == true){
           alert("La etiqueta ya existe en la BBDD");
-        }
-
-    });
-
-    
-    if(estaEnBBDD == false){
-      alert("Se procede a guardar en la BBDD");
-      //.....
-      
-    }
-
+        }else{
 
 
 
@@ -117,6 +107,36 @@ export class LineaEtiquetaComponent implements OnInit {
                 // this.inputVisible = false;
               }
               this.inputVisible = false;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        }
+
+    });
+
+    
+
+
+
+
+
+
+
+
+
+
+
 
 
 

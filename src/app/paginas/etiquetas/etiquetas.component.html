@@ -6,7 +6,10 @@
         <mat-grid-tile></mat-grid-tile>
         <mat-grid-tile></mat-grid-tile>
         <mat-grid-tile></mat-grid-tile>
-        <mat-grid-tile><div><a [routerLink]= "['/nueva-etiqueta']">Crear nueva etiqueta</a></div></mat-grid-tile>
+        <mat-grid-tile>
+            <!-- <div><a [routerLink]= "['/nueva-etiqueta']">Crear nueva etiqueta</a></div> -->
+            <button type="button" class="btn btn-success" (click)="irPaginaCrearEtiqueta()">Nueva etiqueta</button>
+        </mat-grid-tile>
             
 
 

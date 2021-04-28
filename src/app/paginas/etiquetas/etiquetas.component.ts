@@ -129,4 +129,9 @@ export class EtiquetasComponent implements OnInit {
 
     
   }
+
+  irPaginaCrearEtiqueta(){
+    this.router.navigate(['/nueva-etiqueta']);
+  }
+
 }

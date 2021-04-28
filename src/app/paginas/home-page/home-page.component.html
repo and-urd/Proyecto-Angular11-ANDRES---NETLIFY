@@ -2,19 +2,20 @@
 
 
 <div class="container text-center">
+	<br>
 	<h1>Home</h1>
 	<form>
 
 		<div>
-			<a class="list-group-item" [routerLink]="['/etiquetas']" >Etiquetas</a>
+			<a class="list-group-item list-group-item-success" [routerLink]="['/etiquetas']" >Etiquetas</a>
 		</div>
 		<br>
 		<div>
-			<a class="list-group-item" [routerLink]="['/expertos']">Expertos</a>
+			<a class="list-group-item list-group-item-success" [routerLink]="['/expertos']">Expertos</a>
 		</div>
 		<br>
 		
-		<button  (click)="logout()">Log out</button>
+		<button type="button" class="btn btn-secondary btn-sm" (click)="logout()">Log out</button>
 		
 	</form>
 </div>

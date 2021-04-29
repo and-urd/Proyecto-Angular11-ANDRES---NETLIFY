@@ -21,6 +21,8 @@ export class LineaExpertoComponent implements OnInit {
   nombreAnterior: string = "";
   creadorAnterior: string = "";
 
+  @Input() alturaFila: string = ''; // Establecerá la altura de la esta línea de experto
+
   constructor(
               public router: Router,
               public expertoService: ExpertoService

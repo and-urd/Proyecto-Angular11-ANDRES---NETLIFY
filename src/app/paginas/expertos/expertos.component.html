@@ -105,7 +105,8 @@
 
 
     <div>
-        <app-linea-experto *ngFor="let e of arrayExpertos" [experto]="e"></app-linea-experto>
+        <app-linea-experto *ngFor="let e of arrayExpertos" [experto]="e"
+                            [alturaFila] = "'100/:' + (20 + e.etiquetas.length*10).toString()"></app-linea-experto>
     </div>
 
 

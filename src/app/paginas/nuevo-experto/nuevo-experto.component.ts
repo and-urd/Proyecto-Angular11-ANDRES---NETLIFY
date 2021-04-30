@@ -131,7 +131,7 @@ export class NuevoExpertoComponent implements OnInit {
 			nifValidado = true;
 		}else{
 			nifValidado = false; 
-			mensajeError += "Formato de NIF incorrecto.\n(12345678-A) \n\n";
+			mensajeError += "Formato de NIF incorrecto.\n(12345678-A). \n\n";
 		}
 	}
 
@@ -146,7 +146,7 @@ export class NuevoExpertoComponent implements OnInit {
 			emailValidado = true;
 		}else{
 			emailValidado = false;
-			mensajeError += "Email no válido";
+			mensajeError += "Email no válido. \n\n";
 		}
 	}
 
@@ -165,7 +165,7 @@ export class NuevoExpertoComponent implements OnInit {
 			linkedinValidado = true;
 		}else{
 			linkedinValidado = false;
-			mensajeError += "La URL de Linkedin no es correcta";
+			mensajeError += "La URL de Linkedin no es correcta. \n\n";
 		}
 	}
 

@@ -53,10 +53,6 @@ export class LineaEtiquetaComponent implements OnInit {
 
   actualizarEtiqueta(){
 
-
-
-
-
     let arrayEtiquetas: Etiqueta[] = []; // Guardará todas las etiquetas de la BBDD
     let estaEnBBDD: boolean = false;
 
@@ -64,7 +60,7 @@ export class LineaEtiquetaComponent implements OnInit {
     this.etiquetaService.encontrarTodas("", 0, 100).subscribe(data =>{
 
       arrayEtiquetas = data["content"];
-      console.log(arrayEtiquetas);
+      // console.log(arrayEtiquetas);
 
 
         for (let i = 0; i < arrayEtiquetas.length; i++) {
@@ -80,13 +76,6 @@ export class LineaEtiquetaComponent implements OnInit {
           this.etiqueta["nombre"] = this.nombreAnterior;
           this.etiqueta["creador"] = this.creadorAnterior;
         }else{
-
-
-
-
-
-
-
 
               if((this.etiqueta["nombre"] != this.nombreAnterior) || (this.etiqueta["creador"] != this.creadorAnterior))
               {
@@ -111,46 +100,10 @@ export class LineaEtiquetaComponent implements OnInit {
               }
               this.inputVisible = false;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
         }
 
     });
 
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   }
-
-
-
-
-
 
 }

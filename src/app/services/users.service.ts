@@ -17,11 +17,11 @@ export class UsersService {
         
     // return this.http.post("https://proyectofinalurda.herokuapp.com/api/usuario-login", user);
     
-    return this.http.post("https://proyectofinalurda.herokuapp.com/api/usuario-login", user);
+    return this.http.post("https://proyectofinalurda.herokuapp.com/api/auth/login", user);
   }
 
   register(user: any): Observable<any>{
-    return this.http.post("https://proyectofinalurda.herokuapp.com/api/usuario-registro",user);
+    return this.http.post("https://proyectofinalurda.herokuapp.com/api/auth/signup",user);
   }
 
   deleteToken(){

@@ -12,6 +12,7 @@ import { UsersService } from 'src/app/services/users.service';
 export class LoginPageComponent implements OnInit {
 
   // Atributos
+  username: string = '';
   email: string = '';
   password: string = '';
   loginFallido: boolean = false;

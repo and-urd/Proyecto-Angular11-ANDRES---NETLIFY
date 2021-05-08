@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
@@ -39,6 +39,7 @@ import { LineaExpertoComponent } from './components/linea-experto/linea-experto.
 import { NuevoExpertoComponent } from './paginas/nuevo-experto/nuevo-experto.component';
 import {MatSelectModule} from '@angular/material/select';
 import { InformacionExpertoComponent } from './paginas/informacion-experto/informacion-experto.component'; 
+import { AuthInterceptorService } from './services/auth-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -79,7 +80,12 @@ import { InformacionExpertoComponent } from './paginas/informacion-experto/infor
     MatPaginatorModule,
     MatSelectModule
   ],
-  providers: [CookieService],
+  providers: [CookieService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

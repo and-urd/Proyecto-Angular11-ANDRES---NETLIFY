@@ -30,6 +30,7 @@ export class LoginPageComponent implements OnInit {
   login(){
     
     let user: User = new User(this.loginForm.value.email, this.loginForm.value.password, '');
+    user.username = this.loginForm.value.username;
 
     this.spinner = true;
     this.usersService.login(user).subscribe(data => {

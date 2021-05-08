@@ -12,6 +12,7 @@ import { UsersService } from 'src/app/services/users.service';
 export class RegisterPageComponent implements OnInit {
 
 	// Atributos
+	username: string = '';
 	email: string='';
 	password: string='';
 	confirmPassword: string='';
@@ -31,7 +32,7 @@ export class RegisterPageComponent implements OnInit {
 
   	register(){
 
-		let user: User = new User(this.registerForm.value.email, this.registerForm.value.password, this.registerForm.value.passwordRepetido);
+		let user: User = new User(this.registerForm.value.username, this.registerForm.value.email, this.registerForm.value.password, this.registerForm.value.passwordRepetido);
 
 		if(user.password != user.passwordRepetido){
 			this.passwordError= true;

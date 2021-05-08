@@ -6,7 +6,8 @@ export class User implements IUser{
     password: string='';
     passwordRepetido: string ='';
 
-    constructor(email: string, password: string, passwordRepetido: string){
+    constructor(username: string, email: string, password: string, passwordRepetido: string){
+        this.username = username;
         this.email = email;
         this.password = password;
         this.passwordRepetido = passwordRepetido;
